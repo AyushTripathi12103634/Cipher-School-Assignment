@@ -10,23 +10,26 @@ import testRoute from "./routes/testRoute.js";
 import Test from "./models/testmodel.js";
 import Question from "./models/questionmodel.js";
 
-dotenv.config()
+dotenv.config();
 
 const app = express();
+
 app.use(express.json());
+
 app.use(cors({
     origin: process.env.Client_URL,
-    methods: ['GET', 'POST']
-}))
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+}));
 
-
-
-const Endpoint = "/server/api"
+const Endpoint = "/server/api";
 app.use(`${Endpoint}/auth`, authRoute);
 app.use(`${Endpoint}/test`, testRoute);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`.bgGreen.white);
-})
+});
 
 connectDB();
