@@ -112,6 +112,7 @@ export const loginController = async (req, res) => {
         return res.status(500).send({
             success: false,
             message: "Failed to login",
+            error: error
         });
     }
 };
