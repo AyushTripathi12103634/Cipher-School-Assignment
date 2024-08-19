@@ -61,7 +61,7 @@ export const registerController = async (req, res) => {
 };
 
 export const loginController = async (req, res) => {
-    try {
+    // try {
         const { email, password } = req.body;
         if (!email) {
             return res.status(400).send({
@@ -108,13 +108,13 @@ export const loginController = async (req, res) => {
                 message: "Invalid Password",
             });
         }
-    } catch (error) {
-        return res.status(500).send({
-            success: false,
-            message: "Failed to login",
-            error: error
-        });
-    }
+    // } catch (error) {
+    //     return res.status(500).send({
+    //         success: false,
+    //         message: "Failed to login",
+    //         error: error
+    //     });
+    // }
 };
 
 export const islogincontroller = async(req,res) => {
