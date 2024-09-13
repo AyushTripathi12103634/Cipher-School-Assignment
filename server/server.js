@@ -28,6 +28,5 @@ app.use(`${Endpoint}/auth`, authRoute);
 app.use(`${Endpoint}/test`, testRoute);
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server not running on port ${process.env.PORT}`.bgGreen.white);
-    console.log(`Server is running on port ${process.env.PORT}`.bgGreen.white);
+    console.log(`Server running on port ${process.env.PORT}`.bgGreen.white);
 });
